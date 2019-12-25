@@ -10,6 +10,19 @@
     },
   
     "rules": {
-       
+        "semi": ["warn","always"],
+        "for-direction": "error",
+        "no-cond-assign": "error",
+        "no-constant-condition": "error",
+        "no-multi-assign": "error",
+        "indent": ["error", 2],
+        "no-console":"warn",
+        "camelcase":"warn",
+        "no-compare-neg-zero":"error",
+        "no-dupe-args": "error",
+        "no-dupe-keys": "error",
+        "no-duplicate-case": "error",
+        "no-unsafe-negation": "error",
+        "no-extra-semi": "error"
     }
 }
