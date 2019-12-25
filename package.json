@@ -1,0 +1,36 @@
+{
+  "name": "doctorappointmentwebapi",
+  "version": "1.0.0",
+  "description": "This is assignment of webapi subject",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "lint": "eslint ./",
+    "test": "echo \"Error: no test specified\" && exit 1"
+   
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Maheswor12/DoctorAppointmentWebApi.git"
+  },
+  "keywords": [
+    "node",
+    "npm",
+    "express"
+  ],
+  "author": "Maheshwar raj shrestha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Maheswor12/DoctorAppointmentWebApi/issues"
+  },
+  "homepage": "https://github.com/Maheswor12/DoctorAppointmentWebApi#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.11.0",
+    "@typescript-eslint/parser": "^2.11.0",
+    "eslint": "^6.7.2",
+    "nodemon": "^2.0.1"
+  }
+}
