@@ -7,7 +7,6 @@
     "start": "nodemon server.js",
     "lint": "eslint ./",
     "test": "echo \"Error: no test specified\" && exit 1"
-   
   },
   "repository": {
     "type": "git",
@@ -25,7 +24,9 @@
   },
   "homepage": "https://github.com/Maheswor12/DoctorAppointmentWebApi#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mysql2": "^2.1.0",
+    "sequelize": "^5.21.3"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.11.0",
