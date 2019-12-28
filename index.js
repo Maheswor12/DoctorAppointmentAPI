@@ -1,7 +1,7 @@
 const express = require("express");
 const doctorApp = express();
 const bodyParser = require("body-parser");
-const userRoutes = require('./api/routes/user');
+const userRoutes = require("./api/routes/user");
 doctorApp.use(bodyParser.urlencoded({ extended: true }));
 
 // Routes which should handle requests
@@ -15,8 +15,8 @@ doctorApp.use("/", (req, res, next) => {
 doctorApp.use((err, req, res, next) => {
   res.json({
     status: 500,
-    message: error.message
+    message: err.message
   });
-  res.send(error.message);
+  res.send(err.message);
 });
 module.exports = doctorApp;

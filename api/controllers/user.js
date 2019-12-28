@@ -1,7 +1,7 @@
 const bcrypt = require("bcryptjs");
-const user = require("../model/user");
+const registerUser = require("../model/user");
 exports.validator = (req, res, next) => {
-  // to check wheather the username is empty or not
+  // to check wheather the registerUsername is empty or not
   if (req.body.fullname === "") {
     res.send("fullname cannot be empty");
   } else if (req.body.email === "") {
@@ -16,10 +16,10 @@ exports.validator = (req, res, next) => {
     res.send("gender cannot be empty");
   } else if (req.body.password === "") {
     res.send("password cannot be empty");
-  } else if (req.body.image === "") {
+  } else if (req.body.filename === "") {
     res.send("image cannot be empty");
   }
-  user
+  registerUser
     .findOne({
       where: { email: req.body.email }
     })
@@ -42,8 +42,8 @@ exports.validator = (req, res, next) => {
 exports.registerUser = (req, res, next) => {
   bcrypt.genSalt(10, function(err, salt) {
     bcrypt.hash(req.body.password, salt, function(err, hash) {
-      //console.log(hash);
-      user
+      //console.log(req.file.filename);
+      registerUser
         .create({
           fullname: req.body.fullname,
           email: req.body.email,
@@ -52,7 +52,7 @@ exports.registerUser = (req, res, next) => {
           age: req.body.age,
           gender: req.body.gender,
           password: hash,
-          image: "mahesh_image"
+          image: req.file.filename
         })
         .then(function(result) {
           //console.log(result);
