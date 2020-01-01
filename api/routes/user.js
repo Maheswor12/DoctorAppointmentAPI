@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express();
-const UserController = require("../controllers/user");
-// for image 
+const userController = require("../controllers/user");
+var loginController = require("../controllers/loginUsers");
+// for image
 const multer = require("multer");
 const storage = multer.diskStorage({
   destination: "./uploads/",
@@ -12,6 +13,12 @@ const storage = multer.diskStorage({
 //multer is used to upload the file
 const upload = multer({ storage: storage });
 
-router.post("/signup", upload.single("photo"),   UserController.registerUser);
+router.post(
+  "/signup",
+  upload.single("photo"),
+  userController.registerUser,
+  userController.registerUser
+);
+router.post("/login", loginController.validatorLogin);
 module.exports = router;
-// UserController.validator,
+// userController.validator,
