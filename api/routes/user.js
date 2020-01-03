@@ -19,6 +19,6 @@ router.post(
   userController.registerUser,
   userController.registerUser
 );
-router.post("/login", loginController.validatorLogin);
+router.post("/login", loginController.validatorLogin,loginController.CheckPasssword,loginController.TokenGeneration,loginController.TokenVarify);
 module.exports = router;
 // userController.validator,
