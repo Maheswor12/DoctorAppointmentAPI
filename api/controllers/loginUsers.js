@@ -44,3 +44,28 @@ exports.CheckPasssword = (req, res, next) => {
       next(err);
     });
 };
+exports.TokenGeneration = (req, res) => {
+  const payloadd = {
+    email: req.body.email,
+    userLevel: "superadmin"
+  };
+
+  jwt.sign(payloadd, "thisisSecretKey", { expiresIn: "10h" }, function(
+    err,
+    resultToken
+  ) {
+    res.json({ usertoken: resultToken });
+  });
+};
+exports.TokenVarify = (req, res, next) => {
+  if (req.headers.authorization === undefined) {
+    res.json({ status: 401, message: "Unauthorized" });
+  }
+  const token = req.headers.authorization.slice(
+    7,
+    req.headers.authorization.length
+  );
+  jwt.verify(token, "thisisSecretKey", function(err, result) {
+    next();
+  });
+};
