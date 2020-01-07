@@ -58,6 +58,7 @@ exports.TokenGeneration = (req, res) => {
     res.json({ usertoken: resultToken });
   });
 };
+
 exports.TokenVarify = (req, res, next) => {
   if (req.headers.authorization === undefined) {
     res.json({ status: 401, message: "Unauthorized" });
